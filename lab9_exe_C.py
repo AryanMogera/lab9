@@ -1,5 +1,18 @@
+"""
+===================================================
+Name        : lab9.exe_C.py
+Assignment  : Lap, Exercise C
+Author(s)   : Aryan Mogera, Sheharyar
+Submission  : March 20, 2024
+Description : Fetch data by Python
+===================================================
+"""
+
 import requests
 import json 
+
+'''Fetches product data from the given URL, returns list of dictionaries
+containing product details. Returns None if an error occurs.'''
 
 def fetch_product_data(url):
     try:
@@ -11,11 +24,14 @@ def fetch_product_data(url):
     except requests.exceptions.RequestException as e:
         print(f"Error fetching data: {e}")
         return None
-
+    
+"""Lists all products in the given list of dictionaries"""
 def list_all_products(products):
     for product in products:
         print(f"{product.get('title')}")
 
+""" Searches for a product with the given name in the list of dictionaries.
+returns the product if found, otherwise prints an error message and returns None."""
 def search_product(products, name):
     found_products = [product for product in products if product.get('title').lower() == name.lower()]
     if found_products:
