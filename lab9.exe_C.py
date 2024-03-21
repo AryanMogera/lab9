@@ -58,6 +58,7 @@ def main():
           print(f"brand: {product.get('brand')}")
           print(f"Category: {product.get('category')}")
           print(f"Thumbnail: {product.get('thumbnail')}")
+          print(f"Images: {product.get('images')}")
 
       elif choice == "3":
         break
