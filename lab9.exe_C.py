@@ -26,13 +26,14 @@ def fetch_product_data(url):
 
 def list_all_products(products):
   for product in products:
-      print(f"{product['name']} - {product['price']}")
+    print(f"{product.get('name')} - {product.get('price')}")
 
 def search_product(products, name):
-  for product in products:
-      if product['name'] == name:
-        return product
-  print(f"Product {name} not found")      
+    found_products = [product for product in products if product.get('name') == name]
+    if found_products:
+        return found_products[0]
+    else:
+        print(f"Product '{name}' not found")    
 
 def main():
   products_url = "https://dummyjson.com/products"
