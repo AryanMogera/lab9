@@ -26,10 +26,10 @@ def fetch_product_data(url):
 
 def list_all_products(products):
   for product in products:
-    print(f"{product.get('name')} - {product.get('price')}")
+    print(f"{product.get('title')}")
 
 def search_product(products, name):
-    found_products = [product for product in products if product.get('name') == name]
+    found_products = [product for product in products if product.get('title') == name]
     if found_products:
         return found_products[0]
     else:
@@ -48,7 +48,17 @@ def main():
         product_name = input("Enter product name: ")
         product = search_product(products, product_name)
         if product:
-          print(f"{product['name']} - {product['price']}")
+          print("\nProduct details:")
+          print(f"Title: {product.get('title')}")
+          print(f"Description: {product.get('description')}")
+          print(f"Price: {product.get('price')}")
+          print(f"Discount Percentage: {product.get('discountPercentage')}")
+          print(f"Rating: {product.get('rating')}")
+          print(f"Stock: {product.get('stock')}")
+          print(f"brand: {product.get('brand')}")
+          print(f"Category: {product.get('category')}")
+          print(f"Thumbnail: {product.get('thumbnail')}")
+
       elif choice == "3":
         break
       else:
